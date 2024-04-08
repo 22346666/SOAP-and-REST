@@ -54,7 +54,7 @@ void Pizza::create(QSqlQuery &query) const
         throw std::runtime_error("Invalid pizza data");
     }
     if(check_exist_name(query)) {
-        throw std::runtime_error("Entity with this ID already exists");
+        throw std::runtime_error("Entity with this name already exists");
     }
     query.exec(QString("INSERT INTO pizza (PizzaName, PizzaCost, PizzaImage) values ('%1', '%2', '%3')").arg(name, cost, image));
     if(query.lastError().isValid()) {
