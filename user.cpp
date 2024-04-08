@@ -60,7 +60,7 @@ void User::create(QSqlQuery &query) const
         throw std::runtime_error("Invalid user data");
     }
     if(check_exist_email(query)) {
-        throw std::runtime_error("Entity with this ID already exists");
+        throw std::runtime_error("Entity with this email already exists");
     }
     query.exec(QString("INSERT INTO users (UserName, UserSurname, UserEmail, UserPassword) values ('%1', '%2', '%3', '%4')").arg(name, surname, email, password));
     if(query.lastError().isValid()) {
